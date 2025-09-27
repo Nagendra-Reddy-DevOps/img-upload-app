@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: s3-access-sa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      serviceAccountName: s3-access-sa
+      containers:
+        - name: backend
+          image: "257394477599.dkr.ecr.us-east-1.amazonaws.com/image-app-backend"
+          ports:
+            - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: backend-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: s3-access-sa
+spec:
+  type: ClusterIP
+  selector:
+    app: backend
+  ports:
+    - port: 5000
+      targetPort: 5000
