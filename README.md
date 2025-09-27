@@ -49,7 +49,7 @@ Setup Instructions
 
 1️. Clone the Repo
 git clone https://github.com/Nagendra-Reddy-DevOps/img-upload-app.git
-cd image-app-infra/Modules
+
 2️. Configure Backend 
 Using remote state (e.g., S3 backend), updated backend.tf.
 
@@ -71,6 +71,7 @@ instance_types     = ["t3.medium"]
 s3_bucket_name     = "image-upload-bucket-dev-20250719"
 
 4️. Initialize and Apply Terraform
+cd img-upload-app/infra/env/prod
 terraform init
 terraform plan
 terraform apply
@@ -86,10 +87,9 @@ ALB + Ingress controller
 
 5️. Connect kubectl to EKS
 aws eks update-kubeconfig --region us-east-1 --name image-app
-kubectl get nodes
-6️. Deploy App (via GitHub Actions or manually)
+kubectl get node
 
-Create and apply manifests in 
+ Apply manifests yaml files 
 ├── k8s/
 │   ├── backend-configmap.yaml/
 │   ├── backend-deployment.yaml/
