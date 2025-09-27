@@ -48,7 +48,7 @@ infra/
 Setup Instructions
 
 1️. Clone the Repo
-git clone https://github.com/arshiyasha318/image-app.git
+git clone https://github.com/Nagendra-Reddy-DevOps/img-upload-app.git
 cd image-app-infra/Modules
 2️. Configure Backend 
 Using remote state (e.g., S3 backend), updated backend.tf.
@@ -131,7 +131,6 @@ S3 bucket is private (no public ACLs)
 
 Access via IRSA-based IAM role
 
-HTTPS via ACM/Route53 
 
-GitHub Secrets
-GitHub actions working and application working & Terraform
+
+
