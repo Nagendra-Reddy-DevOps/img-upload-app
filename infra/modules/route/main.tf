@@ -6,7 +6,7 @@ data "aws_route53_zone" "main" {
 
 # ACM Certificate
 resource "aws_acm_certificate" "cert" {
-  domain_name       = "gallery.arshiyaops.shop"
+  domain_name       = "domain name"  # change your domain
   validation_method = "DNS"
 
   lifecycle {
